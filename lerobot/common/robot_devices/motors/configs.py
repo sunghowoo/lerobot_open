@@ -18,7 +18,6 @@ class DynamixelMotorsBusConfig(MotorsBusConfig):
     motors: dict[str, tuple[int, str]]
     mock: bool = False
 
-
 @MotorsBusConfig.register_subclass("feetech")
 @dataclass
 class FeetechMotorsBusConfig(MotorsBusConfig):

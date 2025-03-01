@@ -206,15 +206,16 @@ class KochRobotConfig(ManipulatorRobotConfig):
     leader_arms: dict[str, MotorsBusConfig] = field(
         default_factory=lambda: {
             "main": DynamixelMotorsBusConfig(
-                port="/dev/tty.usbmodem585A0085511",
+                port="/dev/ttyUSB0",
                 motors={
                     # name: (index, model)
-                    "shoulder_pan": [1, "xl330-m077"],
-                    "shoulder_lift": [2, "xl330-m077"],
-                    "elbow_flex": [3, "xl330-m077"],
-                    "wrist_flex": [4, "xl330-m077"],
-                    "wrist_roll": [5, "xl330-m077"],
-                    "gripper": [6, "xl330-m077"],
+                    "shoulder_pan": [1, "xh540-w150"],
+                    "shoulder_lift": [2, "xh540-w150"],
+                    "elbow_flex": [3, "xh540-w150"],
+                    "wrist_flex": [4, "xc330-t288"],
+                    "wrist_roll": [5, "xc330-t288"],
+                    "wrist_roll_last": [6, "xc330-t288"],
+                    "gripper": [7, "xc330-t288"],
                 },
             ),
         }
@@ -223,15 +224,16 @@ class KochRobotConfig(ManipulatorRobotConfig):
     follower_arms: dict[str, MotorsBusConfig] = field(
         default_factory=lambda: {
             "main": DynamixelMotorsBusConfig(
-                port="/dev/tty.usbmodem585A0076891",
+                port="/dev/ttyACM0",
                 motors={
                     # name: (index, model)
-                    "shoulder_pan": [1, "xl430-w250"],
-                    "shoulder_lift": [2, "xl430-w250"],
-                    "elbow_flex": [3, "xl330-m288"],
-                    "wrist_flex": [4, "xl330-m288"],
-                    "wrist_roll": [5, "xl330-m288"],
-                    "gripper": [6, "xl330-m288"],
+                    "shoulder_pan": [1, "ym080-230-a099-rh"],
+                    "shoulder_lift": [2, "ym080-230-a099-rh"],
+                    "elbow_flex": [3, "ym070-210-a099-rh"],
+                    "wrist_flex": [4, "ym070-210-a099-rh"],
+                    "wrist_roll": [5, "ym070-210-a099-rh"],
+                    "wrist_roll_last": [6, "ym070-210-a099-rh"],
+                    "gripper": [7, "rh-p12-rn-a"],
                 },
             ),
         }

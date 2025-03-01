@@ -97,6 +97,158 @@ X_SERIES_CONTROL_TABLE = {
     "Present_Temperature": (146, 1),
 }
 
+Y_SERIES_CONTROL_TABLE = {
+    "Model_Number": (0, 2),
+    "Model_Information": (2, 4),
+    "Firmware_Version": (6, 1),
+    "ID": (7, 1),
+    "Bus_Watchdog": (8, 2),
+    "Secondary_Shadow_ID": (10, 1),
+    "Protocol_Type": (11, 1),
+    "Baud_Rate": (12, 1),
+    "Return_Delay_Time": (13, 1),
+    "Status_Return_Level": (15, 1),
+    "Registered_Instruction": (16, 1),
+    "Drive_Mode": (32, 1),
+    "Operating_Mode": (33, 1),
+    "Startup_Configuration": (34, 1),
+    "Position_Limit_Threshold": (38, 2),
+    "In_Position_Threshold": (40, 4),
+    "Following_Error_Threshold": (44, 4),
+    "Moving_Threshold": (48, 4),
+    "Homing_Offset": (52, 4),
+    "Inverter_Temperature_Limit": (56, 1),
+    "Motor_Temperature_Limit": (57, 1),
+    "Max_Voltage_Limit": (60, 2),
+    "Min_Voltage_Limit": (62, 2),
+    "PWM_Limit": (64, 2),
+    "Current_Limit": (66, 2),
+    "Acceleration_Limit": (68, 4),
+    "Velocity_Limit": (72, 4),
+    "Max_Position_Limit": (76, 4),
+    "Min_Position_Limit": (84, 4),
+    "Electronic_GearRatio_Numerator": (96, 4),
+    "Electronic_GearRatio_Denominator": (100, 4),
+    "Safe_Stop_Time": (104, 2),
+    "Brake_Delay": (106, 2),
+    "Goal_Update_Delay": (108, 2),
+    "Overexcitation_Voltage": (110, 1),
+    "Normal_Excitation_Voltage": (111, 1),
+    "Overexcitation_Time": (112, 2),
+    "Present_Velocity_LPF_Frequency": (132, 2),
+    "Goal_Current_LPF_Frequency": (134, 2),
+    "Position_FF_LPF_Time": (136, 2),
+    "Velocity_FF_LPF_Time": (138, 2),
+    "Controller_State": (152, 1),
+    "Error_Code": (153, 1),
+    "Error_Code_History": [(i, 1) for i in range(154, 170)],
+    "Hybrid_Saveve": (170, 1),
+    "Velocity_I_Gain": (212, 4),
+    "Velocity_P_Gain": (216, 4),
+    "Velocity_FF_Gain": (220, 4),
+    "Position_D_Gain": (224, 4),
+    "Position_I_Gain": (228, 4),
+    "Position_P_Gain": (232, 4),
+    "Position_FF_Gain": (236, 4),
+    "Profile_Acceleration": (240, 4),
+    "Profile_Velocity": (244, 4),
+    "Profile_Acceleration_Time": (248, 4),
+    "Profile_Time": (252, 4),
+    "Indirect_Address_1": (256, 2),
+    "Torque_Enable": (512, 1),
+    "LED": (513, 1),
+    "PWM_Offset": (516, 2),
+    "Current_Offset": (518, 2),
+    "Velocity_Offset": (520, 4),
+    "Goal_PWM": (524, 2),
+    "Goal_Current": (526, 2),
+    "Goal_Velocity": (528, 4),
+    "Goal_Position": (532, 4),
+    "Moving_Status": (541, 1),
+    "Realtime_Tick": (542, 2),
+    "Present_PWM": (544, 2),
+    "Present_Current": (546, 2),
+    "Present_Velocity": (548, 4),
+    "Present_Position": (552, 4),
+    "Position_Trajectory": (560, 4),
+    "Velocity_Trajectory": (564, 4),
+    "Present_Input_Voltage": (568, 2),
+    "Present_Inverter_Temperature": (570, 1),
+    "Present_Motor_Temperature": (571, 1),
+    "Indirect_Data_1": (634, 1),
+    "Backup_Ready": (919, 1),
+    "Indirect_Address_Write": (256, 2),
+    "Indirect_Data_Write": (634, 1),
+    "Indirect_Address_Read": (384, 2),
+    "Indirect_Data_Read": (698, 1)
+}
+
+RH_SERIES_CONTROL_TABLE = {
+    "Model_Number": (0, 2),
+    "Model_Information": (2, 4),
+    "Firmware_Version": (6, 1),
+    "ID": (7, 1),
+    "Baud_Rate": (8, 1),
+    "Return_Delay_Time": (9, 1),
+    "Operating_Mode": (11, 1),
+    "Secondary_ID": (12, 1),
+    "Protocol_Type": (13, 1),
+    "Homing_Offset": (20, 4),
+    "Moving_Threshold": (24, 4),
+    "Temperature_Limit": (31, 1),
+    "Max_Voltage_Limit": (32, 2),
+    "Min_Voltage_Limit": (34, 2),
+    "PWM_Limit": (36, 2),
+    "Current_Limit": (38, 2),
+    "Acceleration_Limit": (40, 4),
+    "Velocity_Limit": (44, 4),
+    "Max_Position_Limit": (48, 4),
+    "Min_Position_Limit": (52, 4),
+    "External_Port_Mode_1": (56, 1),
+    "External_Port_Mode_2": (57, 1),
+    "External_Port_Mode_3": (58, 1),
+    "External_Port_Mode_4": (59, 1),
+    "Shutdown": (63, 1),
+    "Indirect_Address_1": (168, 2),
+    "Torque_Enable": (512, 1),
+    "LED_Red": (513, 1),
+    "LED_Green": (514, 1),
+    "LED_Blue": (515, 1),
+    "Status_Return_Level": (516, 1),
+    "Registered_Instruction": (517, 1),
+    "Hardware_Error_Status": (518, 1),
+    "Velocity_I_Gain": (524, 2),
+    "Velocity_P_Gain": (526, 2),
+    "Position_D_Gain": (528, 2),
+    "Position_I_Gain": (530, 2),
+    "Position_P_Gain": (532, 2),
+    "Feedforward_2nd_Gain": (536, 2),
+    "Feedforward_1st_Gain": (538, 2),
+    "Bus_Watchdog": (546, 1),
+    "Goal_PWM": (548, 2),
+    "Goal_Current": (550, 2),
+    "Goal_Velocity": (552, 4),
+    "Profile_Acceleration": (556, 4),
+    "Profile_Velocity": (560, 4),
+    "Goal_Position": (564, 4),
+    "Realtime_Tick": (568, 2),
+    "Moving": (570, 1),
+    "Moving_Status": (571, 1),
+    "Present_PWM": (572, 2),
+    "Present_Current": (574, 2),
+    "Present_Velocity": (576, 4),
+    "Present_Position": (580, 4),
+    "Velocity_Trajectory": (584, 4),
+    "Position_Trajectory": (588, 4),
+    "Present_Input_Voltage": (592, 2),
+    "Present_Temperature": (594, 1),
+    "Indirect_Data_1": (634, 1),
+    "Indirect_Address_Write": (168, 2),
+    "Indirect_Data_Write": (634, 1),
+    "Indirect_Address_Read": (296, 2),
+    "Indirect_Data_Read": (698, 1)
+}
+
 X_SERIES_BAUDRATE_TABLE = {
     0: 9_600,
     1: 57_600,
@@ -107,7 +259,7 @@ X_SERIES_BAUDRATE_TABLE = {
     6: 4_000_000,
 }
 
-CALIBRATION_REQUIRED = ["Goal_Position", "Present_Position"]
+CALIBRATION_REQUIRED = []
 CONVERT_UINT32_TO_INT32_REQUIRED = ["Goal_Position", "Present_Position"]
 
 MODEL_CONTROL_TABLE = {
@@ -118,6 +270,13 @@ MODEL_CONTROL_TABLE = {
     "xm430-w350": X_SERIES_CONTROL_TABLE,
     "xm540-w270": X_SERIES_CONTROL_TABLE,
     "xc430-w150": X_SERIES_CONTROL_TABLE,
+    "xh540-w150": X_SERIES_CONTROL_TABLE,
+    "xc430-t288": X_SERIES_CONTROL_TABLE,
+    "xc330-t288": X_SERIES_CONTROL_TABLE,
+    "xh540-w150": X_SERIES_CONTROL_TABLE,
+    "ym070-210-a099-rh": Y_SERIES_CONTROL_TABLE,
+    "ym080-230-a099-rh": Y_SERIES_CONTROL_TABLE,
+    "rh-p12-rn-a": RH_SERIES_CONTROL_TABLE,
 }
 
 MODEL_RESOLUTION = {
@@ -128,6 +287,11 @@ MODEL_RESOLUTION = {
     "xm430-w350": 4096,
     "xm540-w270": 4096,
     "xc430-w150": 4096,
+    "xh540-w150": 4096,
+    "xc330-t288": 4096,
+    "ym070-210-a099-rh": 51904512,
+    "ym080-230-a099-rh": 51904512,
+    "rh-p12-rn-a": 4096,
 }
 
 MODEL_BAUDRATE_TABLE = {
@@ -138,11 +302,15 @@ MODEL_BAUDRATE_TABLE = {
     "xm430-w350": X_SERIES_BAUDRATE_TABLE,
     "xm540-w270": X_SERIES_BAUDRATE_TABLE,
     "xc430-w150": X_SERIES_BAUDRATE_TABLE,
+    "xh540-w150": X_SERIES_BAUDRATE_TABLE,
+    "xc330-t288": X_SERIES_BAUDRATE_TABLE,
+    "ym070-210-a099-rh": X_SERIES_BAUDRATE_TABLE,
+    "ym080-230-a099-rh": X_SERIES_BAUDRATE_TABLE,
+    "rh-p12-rn-a": X_SERIES_BAUDRATE_TABLE,
 }
 
 NUM_READ_RETRY = 10
 NUM_WRITE_RETRY = 10
-
 
 def convert_degrees_to_steps(degrees: float | np.ndarray, models: str | list[str]) -> np.ndarray:
     """This function converts the degree range to the step range for indicating motors rotation.
@@ -218,10 +386,10 @@ def assert_same_address(model_ctrl_table, motor_models, data_name):
         all_addr.append(addr)
         all_bytes.append(bytes)
 
-    if len(set(all_addr)) != 1:
-        raise NotImplementedError(
-            f"At least two motor models use a different address for `data_name`='{data_name}' ({list(zip(motor_models, all_addr, strict=False))}). Contact a LeRobot maintainer."
-        )
+    # if len(set(all_addr)) != 1:
+    #     raise NotImplementedError(
+    #         f"At least two motor models use a different address for `data_name`='{data_name}' ({list(zip(motor_models, all_addr, strict=False))}). Contact a LeRobot maintainer."
+    #     )
 
     if len(set(all_bytes)) != 1:
         raise NotImplementedError(
@@ -687,40 +855,49 @@ class DynamixelMotorsBus:
         if isinstance(motor_names, str):
             motor_names = [motor_names]
 
-        motor_ids = []
-        models = []
+        values = []
+
+        # ✅ 모터 모델별 개별 처리
+        motor_groups = {}  # {model: [motor_names]} 형태로 그룹화
         for name in motor_names:
             motor_idx, model = self.motors[name]
-            motor_ids.append(motor_idx)
-            models.append(model)
+            if model not in motor_groups:
+                motor_groups[model] = []
+            motor_groups[model].append((name, motor_idx))
 
-        assert_same_address(self.model_ctrl_table, models, data_name)
-        addr, bytes = self.model_ctrl_table[model][data_name]
-        group_key = get_group_sync_key(data_name, motor_names)
+        for model, motors in motor_groups.items():
+            if model not in self.model_ctrl_table:
+                raise ValueError(f"Model {model} is not in the control table!")
 
-        if data_name not in self.group_readers:
-            # create new group reader
-            self.group_readers[group_key] = dxl.GroupSyncRead(
-                self.port_handler, self.packet_handler, addr, bytes
-            )
-            for idx in motor_ids:
-                self.group_readers[group_key].addParam(idx)
+            if data_name not in self.model_ctrl_table[model]:
+                raise ValueError(f"Data name {data_name} not found for model {model}")
 
-        for _ in range(NUM_READ_RETRY):
-            comm = self.group_readers[group_key].txRxPacket()
-            if comm == dxl.COMM_SUCCESS:
-                break
+            addr, bytes = self.model_ctrl_table[model][data_name]
 
-        if comm != dxl.COMM_SUCCESS:
-            raise ConnectionError(
-                f"Read failed due to communication error on port {self.port} for group_key {group_key}: "
-                f"{self.packet_handler.getTxRxResult(comm)}"
-            )
+            group_key = get_group_sync_key(data_name, [m[0] for m in motors])  # 모터 이름만 사용
 
-        values = []
-        for idx in motor_ids:
-            value = self.group_readers[group_key].getData(idx, addr, bytes)
-            values.append(value)
+            if group_key not in self.group_readers:
+                # create new group reader
+                self.group_readers[group_key] = dxl.GroupSyncRead(
+                    self.port_handler, self.packet_handler, addr, bytes
+                )
+                for _, idx in motors:
+                    self.group_readers[group_key].addParam(idx)
+
+            for _ in range(NUM_READ_RETRY):
+                comm = self.group_readers[group_key].txRxPacket()
+                if comm == dxl.COMM_SUCCESS:
+                    break
+
+            if comm != dxl.COMM_SUCCESS:
+                raise ConnectionError(
+                    f"Read failed due to communication error on port {self.port} for group_key {group_key}: "
+                    f"{self.packet_handler.getTxRxResult(comm)}"
+                )
+
+            for name, idx in motors:
+                value = self.group_readers[group_key].getData(idx, addr, bytes)
+                values.append(value)
 
         values = np.array(values)
 
@@ -740,6 +917,7 @@ class DynamixelMotorsBus:
         self.logs[ts_utc_name] = capture_timestamp_utc()
 
         return values
+
 
     def write_with_motor_ids(self, motor_models, motor_ids, data_name, values, num_retry=NUM_WRITE_RETRY):
         if self.mock:
@@ -794,50 +972,53 @@ class DynamixelMotorsBus:
 
         values = np.array(values)
 
-        motor_ids = []
-        models = []
-        for name in motor_names:
+        # ✅ 모터 모델별로 그룹화 (같은 모델끼리 묶어서 처리)
+        motor_groups = {}  # {model: [(name, motor_idx, value)]} 형태로 저장
+        for name, value in zip(motor_names, values):
             motor_idx, model = self.motors[name]
-            motor_ids.append(motor_idx)
-            models.append(model)
+            if model not in motor_groups:
+                motor_groups[model] = []
+            motor_groups[model].append((name, motor_idx, value))
 
-        if data_name in CALIBRATION_REQUIRED and self.calibration is not None:
-            values = self.revert_calibration(values, motor_names)
+        # ✅ 모델별로 개별적으로 write 실행
+        for model, motors in motor_groups.items():
+            if model not in self.model_ctrl_table:
+                raise ValueError(f"Model {model} is not in the control table!")
 
-        values = values.tolist()
+            if data_name not in self.model_ctrl_table[model]:
+                raise ValueError(f"Data name {data_name} not found for model {model}")
 
-        assert_same_address(self.model_ctrl_table, models, data_name)
-        addr, bytes = self.model_ctrl_table[model][data_name]
-        group_key = get_group_sync_key(data_name, motor_names)
+            addr, bytes = self.model_ctrl_table[model][data_name]
+            group_key = get_group_sync_key(data_name, [m[0] for m in motors])  # 모터 이름 리스트 사용
 
-        init_group = data_name not in self.group_readers
-        if init_group:
-            self.group_writers[group_key] = dxl.GroupSyncWrite(
-                self.port_handler, self.packet_handler, addr, bytes
-            )
-
-        for idx, value in zip(motor_ids, values, strict=True):
-            data = convert_to_bytes(value, bytes, self.mock)
+            init_group = data_name not in self.group_writers
             if init_group:
-                self.group_writers[group_key].addParam(idx, data)
-            else:
-                self.group_writers[group_key].changeParam(idx, data)
+                self.group_writers[group_key] = dxl.GroupSyncWrite(
+                    self.port_handler, self.packet_handler, addr, bytes
+                )
 
-        comm = self.group_writers[group_key].txPacket()
-        if comm != dxl.COMM_SUCCESS:
-            raise ConnectionError(
-                f"Write failed due to communication error on port {self.port} for group_key {group_key}: "
-                f"{self.packet_handler.getTxRxResult(comm)}"
-            )
+            for name, idx, value in motors:
+                data = convert_to_bytes(value, bytes, self.mock)
+                if init_group:
+                    self.group_writers[group_key].addParam(idx, data)
+                else:
+                    self.group_writers[group_key].changeParam(idx, data)
 
-        # log the number of seconds it took to write the data to the motors
+            # ✅ Sync Write 실행
+            comm = self.group_writers[group_key].txPacket()
+            if comm != dxl.COMM_SUCCESS:
+                raise ConnectionError(
+                    f"Write failed due to communication error on port {self.port} for group_key {group_key}: "
+                    f"{self.packet_handler.getTxRxResult(comm)}"
+                )
+
+        # ✅ 로깅 추가
         delta_ts_name = get_log_name("delta_timestamp_s", "write", data_name, motor_names)
         self.logs[delta_ts_name] = time.perf_counter() - start_time
 
-        # TODO(rcadene): should we log the time before sending the write command?
-        # log the utc time when the write has been completed
         ts_utc_name = get_log_name("timestamp_utc", "write", data_name, motor_names)
         self.logs[ts_utc_name] = capture_timestamp_utc()
+
 
     def disconnect(self):
         if not self.is_connected:
