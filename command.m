@@ -70,4 +70,8 @@ leader_config = DynamixelMotorsBusConfig(
 {"homing_offset": [12976128, 12976128, 12976128, 12976128, 12976128, 12976128], "drive_mode": [0, 1, 0, 0, 0, 0], "start_pos": [5, 131065, 0, -131070, -140291, 0], "end_pos": [5, 0, 131071, 0, -140291, 0], "calib_mode": ["DEGREE", "DEGREE", "DEGREE", "DEGREE", "DEGREE", "DEGREE"], "motor_names": ["shoulder_pan", "shoulder_lift", "elbow_flex", "wrist_flex", "wrist_roll", "wrist_roll_last"]}
 
 
+---
+
+
+
 

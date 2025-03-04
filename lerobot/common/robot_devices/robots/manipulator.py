@@ -345,7 +345,7 @@ class ManipulatorRobot:
             # to make it move, and it will move back to its original target position when we release the force.
             # 5 corresponds to Current Controlled Position on Koch gripper motors "xl330-m077, xl330-m288"
             
-            arm.write("Operating_Mode", 5, "gripper")
+            #arm.write("Operating_Mode", 5, "gripper")
 
         for name in self.follower_arms:
             set_operating_mode_(self.follower_arms[name])
@@ -449,31 +449,27 @@ class ManipulatorRobot:
 
         for name in self.leader_arms:
             before_lread_t = time.perf_counter()
-            is_gripper = (
-                name in self.leader_arms and
-                "gripper" in self.leader_arms[name].motor_names
-            )
-            loop_count += 1
-            print(f"[DEBUG] Loop {loop_count}: Processing {name}")
-            if is_gripper:
-                # leader_pos[name] = 740 - int((self.leader_arms[name].read("Present_Position") - 1409) * 740 / 679)
-                leader_pos[name] =self.leader_arms[name].read("Present_Position")
+            # Read the position
+            present_pos = self.leader_arms[name].read("Present_Position")
 
-                print(f"[DEBUG] {name}: Gripper detected! Using raw position -> {leader_pos[name]}")
-            else:
-                leader_pos[name] = self.leader_arms[name].read("Present_Position") * int(CONVERSION_RATIO)
-                print(f"[DEBUG] {name}: Applying CONVERSION_RATIO ({CONVERSION_RATIO}) -> {leader_pos[name]}")
+            # Check if present_pos is valid
+            #if present_pos is None:
+            #    raise ValueError(f"Error: Failed to read Present_Position for {name}")
 
-            # #leader_pos[name] = self.leader_arms[name].read("Present_Position") * int(CONVERSION_RATIO)
-            # leader_pos[name] = (
-            #     self.leader_arms[name].read("Present_Position")
-            #     if name in [motor_name for motor_name in self.follower_arms[name].motor_names if motor_name == "gripper"]
-            #     else self.leader_arms[name].read("Present_Position") * int(CONVERSION_RATIO)
-            # )
+            present_pos = np.array(present_pos)  # NumPy 배열로 변환
+
+            # 마지막 요소(gripper) 제외하고 변환
+            converted_pos = present_pos[:-1] * int(CONVERSION_RATIO)
+            gripper_converted = 740 - int((present_pos[-1] - 1409) * 740 / 679)
+            converted_pos = np.append(converted_pos, gripper_converted)
+
+            # leader_pos[name]을 np.ndarray로 저장
+            leader_pos[name] = converted_pos
+            
             leader_pos[name] = torch.from_numpy(leader_pos[name])
             print(f"[DEBUG] leader_pos[{name}]: {leader_pos[name]}")
 
-            ##self.logs[f"read_leader_{name}_pos_dt_s"] = time.perf_counter() - before_lread_t
+            self.logs[f"read_leader_{name}_pos_dt_s"] = time.perf_counter() - before_lread_t
 
         # Send goal position to the follower
         follower_goal_pos = {}
@@ -483,22 +479,20 @@ class ManipulatorRobot:
 
             # Cap goal position when too far away from present position.
             # Slower fps expected due to reading from the follower.
-            # if self.config.max_relative_target is not None: // 안전장치 나중에 다시 켜기
-            #     present_pos = self.follower_arms[name].read("Present_Position")
-            #     present_pos = torch.from_numpy(present_pos)
-            #     goal_pos = ensure_safe_goal_position(goal_pos, present_pos, self.config.max_relative_target)
+            if self.config.max_relative_target is not None: # 안전장치 나중에 다시 켜기
+                present_pos = self.follower_arms[name].read("Present_Position")
+                present_pos = torch.from_numpy(present_pos)
+                goal_pos = ensure_safe_goal_position(goal_pos, present_pos, self.config.max_relative_target)
 
             # Used when record_data=True
             follower_goal_pos[name] = goal_pos
             goal_pos = goal_pos.numpy().astype(np.int32)
-            # self.follower_arms[name].write("Goal_Position", goal_pos)
-            # print("go")
+            self.follower_arms[name].write("Goal_Position", goal_pos)
             self.logs[f"write_follower_{name}_goal_pos_dt_s"] = time.perf_counter() - before_fwrite_t
 
         # Early exit when recording data is not requested
         if not record_data:
             return
-
 
         # TODO(rcadene): Add velocity and other info
         # Read follower position
